@@ -1,7 +1,7 @@
 // src/pages/Dashboard.jsx
 import React, { useEffect, useState } from 'react';
 import { logout, auth, db } from '../firebase';
-import { drivers2026 } from '../data/drivers'; // Asegúrate de que este array esté ordenado por Standings
+import { drivers2026 } from '../data/drivers';
 import { getCurrentRace } from '../data/races';
 import {
   doc,
@@ -33,6 +33,9 @@ export default function Dashboard() {
   // CONTROL DE SELECCIÓN
   const [isSelectionOpen, setIsSelectionOpen] = useState(true);
 
+  // CONTROL DEL MENÚ DESPLEGABLE
+  const [showMenu, setShowMenu] = useState(false);
+
   const [modal, setModal] = useState({
     show: false,
     title: '',
@@ -41,18 +44,14 @@ export default function Dashboard() {
     onConfirm: null,
   });
 
-  // --- LÓGICA DE TIERS (REGLAS DE SELECCIÓN) ---
-  // Asumimos que drivers2026 viene ordenado por ranking actual.
-  // Si no, deberías ordenarlo aquí: drivers2026.sort((a,b) => a.rank - b.rank)
-
+  // --- LÓGICA DE TIERS ---
   const tierGroups = {
-    banned: drivers2026.slice(0, 2), // Top 1 y 2 (Prohibidos)
-    tier1: drivers2026.slice(2, 6), // Pos 3, 4, 5, 6
-    tier2: drivers2026.slice(6, 10), // Pos 7, 8, 9, 10
-    tier3: drivers2026.slice(10), // Pos 11 en adelante
+    banned: drivers2026.slice(0, 2),
+    tier1: drivers2026.slice(2, 6),
+    tier2: drivers2026.slice(6, 10),
+    tier3: drivers2026.slice(10),
   };
 
-  // Función para saber a qué tier pertenece un piloto
   const getDriverTier = (driverId) => {
     if (tierGroups.banned.find((d) => d.id === driverId)) return 'banned';
     if (tierGroups.tier1.find((d) => d.id === driverId)) return 'tier1';
@@ -227,7 +226,7 @@ export default function Dashboard() {
     closeModal();
   };
 
-  // --- NUEVA LÓGICA DE SELECCIÓN POR TIERS ---
+  // --- SELECCIÓN POR TIERS ---
   const toggleDriver = (driver) => {
     if (hasPlayed) return;
     if (!isSelectionOpen) {
@@ -241,7 +240,6 @@ export default function Dashboard() {
 
     const tier = getDriverTier(driver.id);
 
-    // 1. REGLA: Top 2 prohibidos
     if (tier === 'banned') {
       showModal(
         'Piloto Bloqueado',
@@ -251,29 +249,23 @@ export default function Dashboard() {
       return;
     }
 
-    // 2. REGLA: Solo 1 por Tier
-    // Verificamos si ya hay alguien seleccionado de este mismo tier
     const existingDriverInTier = selectedDrivers.find(
       (d) => getDriverTier(d.id) === tier
     );
 
     if (existingDriverInTier) {
-      // Si es el mismo, lo quitamos (deselect)
       if (existingDriverInTier.id === driver.id) {
         setSelectedDrivers(selectedDrivers.filter((d) => d.id !== driver.id));
       } else {
-        // Si es otro del mismo tier, LO REEMPLAZAMOS (Auto-swap)
         const newSelection = selectedDrivers.filter(
           (d) => d.id !== existingDriverInTier.id
         );
         setSelectedDrivers([...newSelection, driver]);
       }
     } else {
-      // Si no hay nadie de este tier, lo agregamos (si no excedemos 3 total, aunque por lógica de tiers es difícil excederse si respetamos 1 por tier)
       if (selectedDrivers.length < 3) {
         setSelectedDrivers([...selectedDrivers, driver]);
       } else {
-        // Caso raro de seguridad
         showModal(
           'Equipo Completo',
           'Ya tienes 3 pilotos. Cambia uno de su respectivo grupo.',
@@ -289,7 +281,6 @@ export default function Dashboard() {
       return;
     }
 
-    // Validar que tenga 1 de cada Tier
     const t1 = selectedDrivers.find((d) => getDriverTier(d.id) === 'tier1');
     const t2 = selectedDrivers.find((d) => getDriverTier(d.id) === 'tier2');
     const t3 = selectedDrivers.find((d) => getDriverTier(d.id) === 'tier3');
@@ -516,7 +507,6 @@ export default function Dashboard() {
     </table>
   );
 
-  // --- COMPONENTE PARA RENDERIZAR GRUPOS DE PILOTOS ---
   const DriverGroup = ({ title, drivers, tierName, isBlocked, color }) => (
     <div style={{ marginBottom: '30px' }}>
       <h4
@@ -542,9 +532,6 @@ export default function Dashboard() {
       >
         {drivers.map((driver) => {
           const isSelected = selectedDrivers.find((d) => d.id === driver.id);
-          // Si ya jugaste, solo mostramos los seleccionados en su grupo (o todos si quieres ver el grid completo, aqui mostramos todos pero bloqueados)
-          // El prop 'isBlocked' viene del padre (si es Top 2 o si el juego está cerrado)
-
           const effectiveBlocked =
             hasPlayed || isBlocked || (!isSelectionOpen && !hasPlayed);
 
@@ -633,6 +620,33 @@ export default function Dashboard() {
     </div>
   );
 
+  // --- FUNCIÓN HELPER PARA CAMBIAR PESTAÑA DESDE EL MENÚ ---
+  const handleMenuClick = (tab) => {
+    setActiveTab(tab);
+    if (tab === 'history') loadHistory();
+    setShowMenu(false);
+  };
+
+  // Helper para el nombre de la pestaña actual
+  const getActiveTabName = () => {
+    switch (activeTab) {
+      case 'current':
+        return 'Próxima Carrera';
+      case 'leaderboard':
+        return 'Quiniela';
+      case 'standings':
+        return 'Pilotos';
+      case 'rivals':
+        return 'Espiar';
+      case 'history':
+        return 'Mi Historial';
+      case 'admin':
+        return 'Admin';
+      default:
+        return 'Menú';
+    }
+  };
+
   return (
     <div
       style={{
@@ -645,7 +659,15 @@ export default function Dashboard() {
         minHeight: '100vh',
       }}
     >
-      {/* HEADER */}
+      {/* 1. MENSAJE DE BIENVENIDA (ARRIBA DEL HEADER) */}
+      <h2 style={{ margin: '0 0 10px 0', fontSize: '1.2rem', color: '#555' }}>
+        Bienvenido,{' '}
+        <span style={{ color: '#000', fontWeight: 'bold' }}>
+          {auth.currentUser?.displayName}
+        </span>
+      </h2>
+
+      {/* HEADER (SIN LABEL DE NOMBRE, SOLO TÍTULO Y SALIR) */}
       <header
         style={{
           display: 'flex',
@@ -676,32 +698,6 @@ export default function Dashboard() {
           FANTASY
         </h1>
         <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          {isAdmin && (
-            <button
-              onClick={toggleRaceLock}
-              style={{
-                padding: '8px 16px',
-                marginRight: '10px',
-                backgroundColor: isSelectionOpen ? '#28a745' : '#dc3545',
-                color: 'white',
-                border: 'none',
-                borderRadius: '30px',
-                cursor: 'pointer',
-                fontWeight: 'bold',
-                fontSize: '0.85rem',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '6px',
-              }}
-            >
-              {isSelectionOpen
-                ? '🔓 Selección ABIERTA'
-                : '🔒 Selección CERRADA'}
-            </button>
-          )}
-          <span style={{ fontWeight: '600', color: '#333' }}>
-            {auth.currentUser?.displayName}
-          </span>
           <button
             onClick={logout}
             style={{
@@ -720,49 +716,87 @@ export default function Dashboard() {
         </div>
       </header>
 
-      {/* PESTAÑAS */}
-      <div
-        style={{
-          display: 'flex',
-          gap: '5px',
-          marginBottom: '25px',
-          overflowX: 'auto',
-        }}
-      >
+      {/* MENÚ DROPDOWN (REEMPLAZA LAS PESTAÑAS) */}
+      <div style={{ marginBottom: '25px', position: 'relative', zIndex: 200 }}>
         <button
-          onClick={() => setActiveTab('current')}
-          style={tabStyle(activeTab === 'current')}
+          onClick={() => setShowMenu(!showMenu)}
+          style={{
+            width: '100%',
+            padding: '14px',
+            backgroundColor: 'white',
+            border: '1px solid #ddd',
+            borderRadius: '12px',
+            textAlign: 'left',
+            fontWeight: 'bold',
+            color: '#333',
+            display: 'flex',
+            justifyContent: 'space-between',
+            alignItems: 'center',
+            boxShadow: '0 2px 5px rgba(0,0,0,0.05)',
+            cursor: 'pointer',
+          }}
         >
-          🏎️ Jugar
+          <span>☰ {getActiveTabName()}</span>
+          <span>▼</span>
         </button>
-        <button
-          onClick={() => setActiveTab('leaderboard')}
-          style={tabStyle(activeTab === 'leaderboard')}
-        >
-          🏆 Fantasy
-        </button>
-        <button
-          onClick={() => setActiveTab('standings')}
-          style={tabStyle(activeTab === 'standings')}
-        >
-          📊 Pilotos
-        </button>
-        <button
-          onClick={() => setActiveTab('rivals')}
-          style={tabStyle(activeTab === 'rivals')}
-        >
-          👀 Contrincantes
-        </button>
-        <button onClick={loadHistory} style={tabStyle(activeTab === 'history')}>
-          📜 Historial
-        </button>
-        {isAdmin && (
-          <button
-            onClick={() => setActiveTab('admin')}
-            style={tabStyle(activeTab === 'admin', true)}
+
+        {showMenu && (
+          <div
+            style={{
+              position: 'absolute',
+              top: '110%',
+              left: 0,
+              width: '100%',
+              backgroundColor: 'white',
+              borderRadius: '12px',
+              boxShadow: '0 10px 30px rgba(0,0,0,0.15)',
+              overflow: 'hidden',
+              border: '1px solid #eee',
+            }}
           >
-            🔒 Admin
-          </button>
+            <div
+              onClick={() => handleMenuClick('current')}
+              style={dropdownItemStyle}
+            >
+              🏎️ Próxima Carrera
+            </div>
+            <div
+              onClick={() => handleMenuClick('leaderboard')}
+              style={dropdownItemStyle}
+            >
+              🏆 Quiniela
+            </div>
+            <div
+              onClick={() => handleMenuClick('standings')}
+              style={dropdownItemStyle}
+            >
+              📊 Pilotos
+            </div>
+            <div
+              onClick={() => handleMenuClick('rivals')}
+              style={dropdownItemStyle}
+            >
+              👀 Espiar
+            </div>
+            <div
+              onClick={() => handleMenuClick('history')}
+              style={dropdownItemStyle}
+            >
+              📜 Mi Historial
+            </div>
+            {isAdmin && (
+              <div
+                onClick={() => handleMenuClick('admin')}
+                style={{
+                  ...dropdownItemStyle,
+                  color: '#e10600',
+                  borderTop: '1px solid #eee',
+                }}
+              >
+                🔒 Admin
+              </div>
+            )}
+          </div>
         )}
       </div>
 
@@ -1046,27 +1080,58 @@ export default function Dashboard() {
                   )}
                 </div>
               </div>
-              <button
-                onClick={sendGeneralAlert}
-                style={{
-                  width: '100%',
-                  padding: '10px',
-                  backgroundColor: '#007bff',
-                  color: 'white',
-                  border: 'none',
-                  borderRadius: '8px',
-                  fontWeight: 'bold',
-                  cursor: 'pointer',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '8px',
-                  boxShadow: '0 4px 10px rgba(0, 123, 255, 0.2)',
-                  fontSize: '0.9rem',
-                }}
-              >
-                <span>📢</span> Aviso General
-              </button>
+
+              {/* BOTONES DE ACCIÓN */}
+              <div>
+                <button
+                  onClick={sendGeneralAlert}
+                  style={{
+                    width: '100%',
+                    padding: '10px',
+                    backgroundColor: '#007bff',
+                    color: 'white',
+                    border: 'none',
+                    borderRadius: '8px',
+                    fontWeight: 'bold',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    boxShadow: '0 4px 10px rgba(0, 123, 255, 0.2)',
+                    fontSize: '0.9rem',
+                    marginBottom: '10px', // Espacio para el botón de admin si existe
+                  }}
+                >
+                  <span>📢</span> Aviso General
+                </button>
+
+                {/* BOTÓN DE BLOQUEO (SOLO ADMIN) - AHORA AQUÍ ABAJO */}
+                {isAdmin && (
+                  <button
+                    onClick={toggleRaceLock}
+                    style={{
+                      width: '100%',
+                      padding: '10px',
+                      backgroundColor: isSelectionOpen ? '#28a745' : '#dc3545',
+                      color: 'white',
+                      border: 'none',
+                      borderRadius: '8px',
+                      fontWeight: 'bold',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: '6px',
+                      fontSize: '0.9rem',
+                    }}
+                  >
+                    {isSelectionOpen
+                      ? '🔓 Bloquear Selección'
+                      : '🔒 Desbloquear Selección'}
+                  </button>
+                )}
+              </div>
             </div>
           </div>
 
@@ -1712,21 +1777,16 @@ export default function Dashboard() {
   );
 }
 
-const tabStyle = (isActive, isAdmin = false) => ({
-  flex: 1,
-  padding: '12px 5px',
+// Estilo simple para los items del menú dropdown
+const dropdownItemStyle = {
+  padding: '15px 20px',
+  borderBottom: '1px solid #f5f5f5',
   cursor: 'pointer',
-  border: 'none',
-  background: isActive ? 'white' : 'transparent',
-  borderBottom: isActive
-    ? isAdmin
-      ? '3px solid #000'
-      : '3px solid #e10600'
-    : '3px solid transparent',
-  fontWeight: isActive ? '800' : '600',
-  color: isActive ? (isAdmin ? '#000' : '#e10600') : '#888',
-  borderRadius: '12px 12px 0 0',
-  transition: 'all 0.2s',
-  fontSize: '0.9rem',
-  minWidth: '80px',
-});
+  fontSize: '0.95rem',
+  color: '#333',
+  fontWeight: '500',
+  transition: 'background 0.2s',
+  '&:hover': {
+    background: '#f9f9f9',
+  },
+};
