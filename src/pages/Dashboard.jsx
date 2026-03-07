@@ -631,7 +631,7 @@ export default function Dashboard() {
   const getActiveTabName = () => {
     switch (activeTab) {
       case 'current':
-        return 'Próxima Carrera';
+        return 'Inicio';
       case 'leaderboard':
         return 'Quiniela';
       case 'standings':
@@ -758,7 +758,7 @@ export default function Dashboard() {
               onClick={() => handleMenuClick('current')}
               style={dropdownItemStyle}
             >
-              🏎️ Próxima Carrera
+              🏎️ Inicio
             </div>
             <div
               onClick={() => handleMenuClick('leaderboard')}
@@ -1790,3 +1790,4 @@ const dropdownItemStyle = {
     background: '#f9f9f9',
   },
 };
+
