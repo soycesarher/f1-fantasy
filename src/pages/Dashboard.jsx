@@ -562,6 +562,9 @@ export default function Dashboard() {
                   alt={driver.name}
                   style={{
                     width: '100%',
+                    height: '220px',       // 1. Altura fija para que todas sean iguales
+                    objectFit: 'cover',    // 2. Hace "zoom" para llenar el espacio
+                    objectPosition: 'top', // 3. Enfoca la parte de arriba (la cara)
                     borderRadius: '8px',
                     marginBottom: '8px',
                     filter:
@@ -1792,6 +1795,7 @@ const dropdownItemStyle = {
     background: '#f9f9f9',
   },
 };
+
 
 
 
