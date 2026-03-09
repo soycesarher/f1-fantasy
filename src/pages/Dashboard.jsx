@@ -863,9 +863,9 @@ export default function Dashboard() {
                 </p>
                 <div
                   style={{
-                    margin: '20px auto',
-                    maxWidth: '300px',
-                    padding: '10px',
+                    margin: '10px auto',
+                    maxWidth: '180px',
+                    padding: '5px',
                   }}
                 >
                   <img
@@ -1795,6 +1795,7 @@ const dropdownItemStyle = {
     background: '#f9f9f9',
   },
 };
+
 
 
 
