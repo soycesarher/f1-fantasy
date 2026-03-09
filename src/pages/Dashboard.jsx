@@ -874,7 +874,7 @@ export default function Dashboard() {
                 <div
                   style={{
                     margin: '10px auto',
-                    maxWidth: '230px',
+                    maxWidth: '220px',
                     padding: '5px',
                   }}
                 >
@@ -1814,6 +1814,7 @@ const dropdownItemStyle = {
     background: '#f9f9f9',
   },
 };
+
 
 
 
