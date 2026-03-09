@@ -3,6 +3,14 @@
 export const races2026 = [
   {
     id: 1,
+    name: "Gran Premio de Australia",
+    circuit: "Albert Park Circuit",
+    date: "2026-03-06",
+    image: "https://media.formula1.com/image/upload/c_fit,h_704/q_auto/v1740000000/common/f1/2026/track/2026trackmelbournedetailed.webp",
+    isOpen: true
+  },
+  {
+    id: 2,
     name: "Gran Premio de China",
     circuit: "Shanghai International Circuit",
     date: "2026-03-08",
@@ -10,7 +18,7 @@ export const races2026 = [
     isOpen: true
   },
   {
-    id: 2,
+    id: 3,
     name: "Gran Premio de Japón",
     circuit: "Suzuka Circuit",
     date: "2026-03-22",
@@ -18,7 +26,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 3,
+    id: 4,
     name: "Gran Premio de Bahrein",
     circuit: "Bahrain International Circuit",
     date: "2026-04-05",
@@ -26,7 +34,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 4,
+    id: 5,
     name: "Gran Premio de Arabia Saudita",
     circuit: "Jeddah Corniche Circuit",
     date: "2026-04-12",
@@ -34,7 +42,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 5,
+    id: 6,
     name: "Gran Premio de Miami",
     circuit: "Miami International Autodrome",
     date: "2026-05-03",
@@ -42,7 +50,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 6,
+    id: 7,
     name: "Gran Premio de Canadá",
     circuit: "Circuit Gilles Villeneuve",
     date: "2026-05-24",
@@ -50,7 +58,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 7,
+    id: 8,
     name: "Gran Premio de Mónaco",
     circuit: "Circuit de Monaco",
     date: "2026-06-07",
@@ -58,7 +66,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 8,
+    id: 9,
     name: "Gran Premio de España",
     circuit: "Circuit de Barcelona-Catalunya",
     date: "2026-06-14",
@@ -66,7 +74,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 9,
+    id: 10,
     name: "Gran Premio de Austria",
     circuit: "Red Bull Ring",
     date: "2026-06-28",
@@ -74,7 +82,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 10,
+    id: 11,
     name: "Gran Premio de Gran Bretaña",
     circuit: "Silverstone Circuit",
     date: "2026-07-05",
@@ -82,7 +90,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 11,
+    id: 12,
     name: "Gran Premio de Bélgica",
     circuit: "Circuit de Spa-Francorchamps",
     date: "2026-07-19",
@@ -90,7 +98,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 12,
+    id: 13,
     name: "Gran Premio de Hungría",
     circuit: "Hungaroring",
     date: "2026-07-26",
@@ -98,7 +106,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 13,
+    id: 14,
     name: "Gran Premio de Países Bajos",
     circuit: "Circuit Zandvoort",
     date: "2026-08-23",
@@ -106,7 +114,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 14,
+    id: 15,
     name: "Gran Premio de Italia",
     circuit: "Autodromo Nazionale Monza",
     date: "2026-09-06",
@@ -114,7 +122,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 15,
+    id: 16,
     name: "Gran Premio de Madrid",
     circuit: "Madring",
     date: "2026-09-13",
@@ -122,7 +130,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 16,
+    id: 17,
     name: "Gran Premio de Azerbaiyán",
     circuit: "Baku City Circuit",
     date: "2026-09-27",
@@ -130,7 +138,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 17,
+    id: 18,
     name: "Gran Premio de Singapur",
     circuit: "Marina Bay Street Circuit",
     date: "2026-10-11",
@@ -138,7 +146,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 18,
+    id: 19,
     name: "Gran Premio de Estados Unidos",
     circuit: "Circuit of the Americas",
     date: "2026-10-25",
@@ -146,7 +154,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 19,
+    id: 20,
     name: "Gran Premio de México",
     circuit: "Autódromo Hermanos Rodríguez",
     date: "2026-11-01",
@@ -154,7 +162,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 20,
+    id: 21,
     name: "Gran Premio de Brasil",
     circuit: "Interlagos",
     date: "2026-11-08",
@@ -162,7 +170,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 21,
+    id: 22,
     name: "Gran Premio de Las Vegas",
     circuit: "Las Vegas Strip Circuit",
     date: "2026-11-21",
@@ -170,7 +178,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 22,
+    id: 23,
     name: "Gran Premio de Qatar",
     circuit: "Lusail International Circuit",
     date: "2026-11-29",
@@ -178,7 +186,7 @@ export const races2026 = [
     isOpen: false
   },
   {
-    id: 23,
+    id: 24,
     name: "Gran Premio de Abu Dhabi",
     circuit: "Yas Marina Circuit",
     date: "2026-12-06",
@@ -190,6 +198,7 @@ export const races2026 = [
 export function getCurrentRace() {
   return races2026[0]; 
 }
+
 
 
 
