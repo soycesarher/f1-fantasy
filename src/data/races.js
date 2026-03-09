@@ -196,8 +196,18 @@ export const races2026 = [
 ];
 
 export function getCurrentRace() {
-  return races2026[0]; 
+  // 1. Obtenemos la fecha de hoy en formato YYYY-MM-DD
+  const today = new Date().toISOString().split('T')[0];
+
+  // 2. Buscamos la primera carrera cuya fecha sea HOY o en el FUTURO
+  const nextRace = races2026.find(race => race.date >= today);
+
+  // 3. Si encontramos una carrera futura, la devolvemos.
+  //    Si no encontramos nada (ya pasaron todas), devolvemos la última de la lista.
+  return nextRace || races2026[races2026.length - 1];
 }
+
+
 
 
 
