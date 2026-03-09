@@ -844,7 +844,7 @@ export default function Dashboard() {
                 <h2
                   style={{
                     margin: '0 0 8px 0',
-                    fontSize: '2.2rem',
+                    fontSize: '1.8rem',
                     color: '#1a1a1a',
                     fontWeight: '700',
                   }}
@@ -856,7 +856,7 @@ export default function Dashboard() {
                     color: '#666',
                     margin: 0,
                     fontWeight: '500',
-                    fontSize: '1.1rem',
+                    fontSize: '1.0rem',
                   }}
                 >
                   {currentRace.circuit} • {currentRace.date}
@@ -1795,6 +1795,7 @@ const dropdownItemStyle = {
     background: '#f9f9f9',
   },
 };
+
 
 
 
