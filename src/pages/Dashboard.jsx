@@ -874,7 +874,7 @@ export default function Dashboard() {
                 <div
                   style={{
                     margin: '10px auto',
-                    maxWidth: '220px',
+                    maxWidth: '230px',
                     padding: '5px',
                   }}
                 >
@@ -890,40 +890,49 @@ export default function Dashboard() {
                   />
                 </div>
                 {hasPlayed ? (
-                  <div
-                    style={{
-                      display: 'inline-block',
-                      marginTop: '10px',
-                      padding: '12px 25px',
-                      backgroundColor: '#e6fffa',
-                      color: '#006d58',
-                      borderRadius: '50px',
-                      fontWeight: 'bold',
-                      border: '1px solid #b7ebdf',
-                    }}
-                  >
-                    ✅ EQUIPO CONFIRMADO
-                  </div>
-                ) : !isSelectionOpen ? (
-                  <div
-                    style={{
-                      display: 'inline-block',
-                      marginTop: '10px',
-                      padding: '12px 25px',
-                      backgroundColor: '#f8d7da',
-                      color: '#721c24',
-                      borderRadius: '50px',
-                      fontWeight: 'bold',
-                      border: '1px solid #f5c6cb',
-                    }}
-                  >
-                    🔒 SELECCIÓN CERRADA
-                  </div>
-                ) : (
-                  <p style={{ color: '#e10600', fontWeight: '600' }}>
-                    Selecciona tus 3 pilotos para competir
-                  </p>
-                )}
+                    <div
+                      style={{
+                        display: 'inline-block',
+                        marginTop: '8px',        // Un poco menos de margen arriba
+                        padding: '6px 16px',     // MUCHO MENOS relleno (antes era 12px 25px)
+                        backgroundColor: '#e6fffa',
+                        color: '#006d58',
+                        borderRadius: '50px',
+                        fontWeight: 'bold',
+                        fontSize: '0.75rem',     // Letra pequeña (antes era normal)
+                        border: '1px solid #b7ebdf',
+                        letterSpacing: '0.5px'
+                      }}
+                    >
+                      ✅ EQUIPO CONFIRMADO
+                    </div>
+                  ) : !isSelectionOpen ? (
+                    <div
+                      style={{
+                        display: 'inline-block',
+                        marginTop: '8px',
+                        padding: '6px 16px',     // Relleno reducido
+                        backgroundColor: '#f8d7da',
+                        color: '#721c24',
+                        borderRadius: '50px',
+                        fontWeight: 'bold',
+                        fontSize: '0.75rem',     // Letra pequeña
+                        border: '1px solid #f5c6cb',
+                        letterSpacing: '0.5px'
+                      }}
+                    >
+                      🔒 SELECCIÓN CERRADA
+                    </div>
+                  ) : (
+                    <p style={{ 
+                        color: '#e10600', 
+                        fontWeight: '600', 
+                        fontSize: '0.85rem', // También reduje un poco este texto
+                        margin: '10px 0 0 0' 
+                    }}>
+                      Selecciona tus 3 pilotos para competir
+                    </p>
+                  )}
               </div>
             </div>
 
@@ -1805,6 +1814,7 @@ const dropdownItemStyle = {
     background: '#f9f9f9',
   },
 };
+
 
 
 
