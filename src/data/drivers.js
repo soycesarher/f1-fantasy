@@ -90,7 +90,7 @@ export const drivers2026 = [
     name: 'Sergio Perez',
     team: 'Cadillac',
     color: '#001A30',
-    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/sergio-perez.png',
+    image: 'https://media.formula1.com/image/upload/c_fill,w_720/q_auto/v1740000000/common/f1/2026/cadillac/serper01/2026cadillacserper01right.webp',
   },
   {
     id: 77,
@@ -156,3 +156,4 @@ export const drivers2026 = [
     image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/liam-lawson.png',
   },
 ];
+
