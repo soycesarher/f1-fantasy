@@ -13,7 +13,7 @@ export const races2026 = [
     id: 2,
     name: "Gran Premio de China",
     circuit: "Shanghai International Circuit",
-    date: "2026-03-08",
+    date: "2026-03-14",
     image: "https://media.formula1.com/image/upload/c_fit,h_704/q_auto/v1740000000/common/f1/2026/track/2026trackshanghaidetailed.webp",
     isOpen: true
   },
@@ -21,7 +21,7 @@ export const races2026 = [
     id: 3,
     name: "Gran Premio de Japón",
     circuit: "Suzuka Circuit",
-    date: "2026-03-22",
+    date: "2026-03-28",
     image: "https://media.formula1.com/image/upload/c_fit,h_704/q_auto/v1740000000/common/f1/2026/track/2026tracksuzukadetailed.webp",
     isOpen: false
   },
@@ -206,6 +206,7 @@ export function getCurrentRace() {
   //    Si no encontramos nada (ya pasaron todas), devolvemos la última de la lista.
   return nextRace || races2026[races2026.length - 1];
 }
+
 
 
 
