@@ -6,175 +6,153 @@ export const drivers2026 = [
     name: 'Max Verstappen',
     team: 'Red Bull Racing',
     color: '#3671C6',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/max-verstappen.png',
   },
   {
     id: 6,
     name: 'Isack Hadjar',
     team: 'Red Bull Racing',
-    color: '#3671C6', // ¡ROJO FERRARI!
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LEWHAM01_Lewis_Hamilton/lewham01.png.transform/2col/image.png',
+    color: '#3671C6',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/isack-hadjar.png',
   },
   {
     id: 44,
     name: 'Lewis Hamilton',
     team: 'Ferrari',
-    color: '#E80020', // ¡ROJO FERRARI!
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LEWHAM01_Lewis_Hamilton/lewham01.png.transform/2col/image.png',
+    color: '#E80020',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/lewis-hamilton.png',
   },
   {
     id: 16,
     name: 'Charles Leclerc',
     team: 'Ferrari',
     color: '#E80020',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CHALEC01_Charles_Leclerc/chalec01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/charles-leclerc.png',
   },
   {
     id: 1,
     name: 'Lando Norris',
     team: 'McLaren',
     color: '#FF8000',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANNOR01_Lando_Norris/lannor01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/lando-norris.png',
   },
   {
     id: 81,
     name: 'Oscar Piastri',
     team: 'McLaren',
     color: '#FF8000',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/O/OSCPIA01_Oscar_Piastri/oscpia01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/oscar-piastri.png',
   },
   {
     id: 63,
     name: 'George Russell',
     team: 'Mercedes',
     color: '#27F4D2',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GEORUS01_George_Russell/georus01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/george-russell.png',
   },
   {
-    id: 12, // Kimi Antonelli (Número estimado)
+    id: 12,
     name: 'Kimi Antonelli',
     team: 'Mercedes',
     color: '#27F4D2',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/K/KIMANT01_Kimi_Antonelli/kimant01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/kimi-antonelli.png',
   },
   {
     id: 55,
     name: 'Carlos Sainz',
     team: 'Williams',
-    color: '#64C4FF', // Azul Williams
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CARSAI01_Carlos_Sainz/carsai01.png.transform/2col/image.png',
+    color: '#64C4FF',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/carlos-sainz.png',
   },
   {
     id: 23,
     name: 'Alexander Albon',
     team: 'Williams',
     color: '#64C4FF',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/A/ALEALB01_Alexander_Albon/alealb01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/alexander-albon.png',
   },
   {
     id: 14,
     name: 'Fernando Alonso',
     team: 'Aston Martin',
     color: '#229971',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FERALO01_Fernando_Alonso/feralo01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/fernando-alonso.png',
   },
   {
     id: 18,
     name: 'Lance Stroll',
     team: 'Aston Martin',
     color: '#229971',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANSTR01_Lance_Stroll/lanstr01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/lance-stroll.png',
   },
   {
     id: 11,
     name: 'Sergio Perez',
     team: 'Cadillac',
-    color: '#3671C6',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/S/SERPER01_Sergio_Perez/serper01.png.transform/2col/image.png',
+    color: '#001A30',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/sergio-perez.png',
+  },
+  {
+    id: 77,
+    name: 'Valtteri Bottas',
+    team: 'Cadillac',
+    color: '#001A30',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/valtteri-bottas.png',
   },
   {
     id: 10,
     name: 'Pierre Gasly',
     team: 'Alpine',
     color: '#FF87BC',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/P/PIEGAS01_Pierre_Gasly/piegas01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/pierre-gasly.png',
   },
   {
     id: 43,
     name: 'Franco Colapinto',
     team: 'Alpine',
     color: '#FF87BC',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/P/PIEGAS01_Pierre_Gasly/piegas01.png.transform/2col/image.png',
-  },
-  {
-    id: 77, // Jack Doohan
-    name: 'Valtteri Bottas',
-    team: 'Cadillac',
-    color: '#FF87BC',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/J/JACDOO01_Jack_Doohan/jacdoo01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/franco-colapinto.png',
   },
   {
     id: 27,
     name: 'Nico Hulkenberg',
     team: 'Audi',
     color: '#52E252',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/N/NICHUL01_Nico_Hulkenberg/nichul01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/nico-hulkenberg.png',
   },
   {
-    id: 5, // Gabriel Bortoleto
+    id: 5,
     name: 'Gabriel Bortoleto',
     team: 'Audi',
     color: '#52E252',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GABBOR01_Gabriel_Bortoleto/gabbor01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/gabriel-bortoleto.png',
   },
   {
     id: 31,
     name: 'Esteban Ocon',
     team: 'Haas F1 Team',
     color: '#B6BABD',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/E/ESTOCO01_Esteban_Ocon/estoco01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/esteban-ocon.png',
   },
   {
     id: 87,
     name: 'Oliver Bearman',
     team: 'Haas F1 Team',
     color: '#B6BABD',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/O/OLIBEA01_Oliver_Bearman/olibea01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/oliver-bearman.png',
   },
   {
     id: 41,
     name: 'Arvid Lindblad',
     team: 'Racing Bulls',
     color: '#6692FF',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/Y/YUKTSU01_Yuki_Tsunoda/yuktsu01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/arvid-lindblad.png',
   },
   {
-    id: 30, // Liam Lawson
+    id: 30,
     name: 'Liam Lawson',
     team: 'Racing Bulls',
     color: '#6692FF',
-    image:
-      'https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LIALAW01_Liam_Lawson/lialaw01.png.transform/2col/image.png',
+    image: 'https://media.formula1.com/content/dam/fom-website/drivers/2026/liam-lawson.png',
   },
 ];
