@@ -1399,6 +1399,7 @@ export default function Dashboard() {
                           height: '45px',
                           borderRadius: '50%',
                           objectFit: 'cover',
+                          objectPosition: 'top',
                           border: `2px solid ${driver.color}`,
                           padding: '2px',
                           backgroundColor: 'white',
@@ -1790,4 +1791,5 @@ const dropdownItemStyle = {
     background: '#f9f9f9',
   },
 };
+
 
