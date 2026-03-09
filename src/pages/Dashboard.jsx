@@ -1639,6 +1639,7 @@ export default function Dashboard() {
                               borderRadius: '50%',
                               border: `3px solid ${d.color}`,
                               objectFit: 'cover',
+                              objectPosition: 'top', // <--- AGREGA ESTA LÍNEA
                               padding: '2px',
                               backgroundColor: 'white',
                             }}
@@ -1791,5 +1792,6 @@ const dropdownItemStyle = {
     background: '#f9f9f9',
   },
 };
+
 
 
