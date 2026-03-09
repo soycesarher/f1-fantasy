@@ -6,7 +6,7 @@ export const races2026 = [
     name: "Gran Premio de Australia",
     circuit: "Albert Park Circuit",
     date: "2026-03-08",
-    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Albert_Park_Circuit_2021.svg/1024px-Albert_Park_Circuit_2021.svg.png",
+    image: "https://media.formula1.com/image/upload/c_fit,h_704/q_auto/v1740000000/common/f1/2026/track/2026trackmelbournedetailed.webp",
     isOpen: true
   },
   {
@@ -198,4 +198,5 @@ export const races2026 = [
 export function getCurrentRace() {
   return races2026[0]; 
 }
+
 
