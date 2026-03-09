@@ -7,7 +7,7 @@ export const races2026 = [
     circuit: "Albert Park Circuit",
     date: "2026-03-08",
     image: "https://media.formula1.com/image/upload/c_fit,h_704/q_auto/v1740000000/common/f1/2026/track/2026trackmelbournedetailed.webp",
-    isOpen: true
+    isOpen: false
   },
   {
     id: 2,
@@ -15,7 +15,7 @@ export const races2026 = [
     circuit: "Shanghai International Circuit",
     date: "2026-03-15",
     image: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Shanghai_International_Racing_Circuit_track_map.svg/1024px-Shanghai_International_Racing_Circuit_track_map.svg.png",
-    isOpen: false
+    isOpen: true
   },
   {
     id: 3,
@@ -198,5 +198,6 @@ export const races2026 = [
 export function getCurrentRace() {
   return races2026[0]; 
 }
+
 
 
