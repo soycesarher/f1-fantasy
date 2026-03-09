@@ -844,7 +844,7 @@ export default function Dashboard() {
                 <h2
                   style={{
                     margin: '0 0 8px 0',
-                    fontSize: '1.8rem',
+                    fontSize: '1.6rem',
                     color: '#1a1a1a',
                     fontWeight: '700',
                   }}
@@ -856,15 +856,25 @@ export default function Dashboard() {
                     color: '#666',
                     margin: 0,
                     fontWeight: '500',
-                    fontSize: '1.0rem',
+                    fontSize: '0.8rem',
                   }}
                 >
-                  {currentRace.circuit} • {currentRace.date}
+                  {currentRace.circuit}
+                </p>
+                <p
+                  style={{
+                    color: '#666',
+                    margin: 0,
+                    fontWeight: '500',
+                    fontSize: '0.8rem',
+                  }}
+                >
+                  {currentRace.date}
                 </p>
                 <div
                   style={{
                     margin: '10px auto',
-                    maxWidth: '180px',
+                    maxWidth: '220px',
                     padding: '5px',
                   }}
                 >
@@ -1795,6 +1805,7 @@ const dropdownItemStyle = {
     background: '#f9f9f9',
   },
 };
+
 
 
 
